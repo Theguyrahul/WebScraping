@@ -3,8 +3,11 @@ import requests
 from bs4 import BeautifulSoup
 
 # Getting Hacker News HTML 
-res = requests.get("https://news.ycombinator.com/").text
-
+try:
+    res = requests.get("https://news.ycombinator.com/").text
+except:
+    print("Connection Error. Please run after some time...")
+    exit()
 # Creating Soup
 soup = BeautifulSoup(res,"html.parser")
 
